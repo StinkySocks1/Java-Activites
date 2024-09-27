@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.text.*;
+
+public class javaActivity {
+    public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+        DecimalFormat decimalFormat = new DecimalFormat("##,###,###.00");
+
+        System.out.print("Enter name of the student: ");
+        String studName = scanner.nextLine();
+        System.out.print("Enter number of units enrolled: ");
+        int numUnits = scanner.nextInt();
+        System.out.print("Enter price per unit: ");
+        Double unitsEnrolled = scanner.nextDouble();
+
+        double discount = 0.10; // 10% 
+        double twoDiscount = 0.05; // 
+        double threeDiscount = 0.10; // 10%
+
+        double computedFee = numUnits * unitsEnrolled;
+        String formattedcomputedFee = decimalFormat.format(computedFee);
+        System.out.print("Computed Tuition Fee" + formattedcomputedFee); 
+        System.out.print("Hope" + studName + ", you could avail the following payment");
+
+        String cashPayment = decimalFormat.format(computedFee - (computedFee * discount));
+        String twoInstallment = decimalFormat.format(computedFee + (computedFee * twoDiscount));
+        String threeInstallment = decimalFormat.format(computedFee + (computedFee * threeDiscount));
+
+        System.out.println("Payment Method: ");
+        System.out.println("Cash Discount" + cashPayment);
+        System.out.println("2-Installment" + twoInstallment);
+        System.out.println("3-Installment" + threeInstallment);
+
+        scanner.close();
+    }
+}
